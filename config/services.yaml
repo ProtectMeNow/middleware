@@ -31,3 +31,9 @@ services:
     App\UI\Http\Rest\Controller\:
         resource: '../src/UI/Http/Rest/Controller/'
         tags: ['controller.service_arguments']
+
+    App\Infrastructure\Shared\EventListener\ExceptionListener:
+        tags: ['kernel.event_listener']
+
+    App\Infrastructure\User\Repository\FirebaseUserRepository: ~
+    App\Domain\User\Repository\UserRepositoryInterface: '@App\Infrastructure\User\Repository\FirebaseUserRepository'
